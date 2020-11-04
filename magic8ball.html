@@ -18,15 +18,33 @@ function random()
    
     if (userQ.value.length == 0) {
      solution.value = ("Please ask question first");  
-    }
+   }
     else {
         solution.value = (answers[rand]);
+        if (rand == 4){
+         document.getElementById("myAudio").play();        
+        }  
+
     }
    
    
    
 }
+    
+    
 
+    
+    
+    
+    
+
+function reset()
+{
+
+document.getElementById("answer").value = "";
+    
+    
+}
 </script>
 </head>
 <body background="images/texture.jpg">
@@ -36,14 +54,17 @@ function random()
     <p>The Magic 8-Ball is a plastic sphere, made to look like an eight-ball, that is used for fortune-telling or seeking advice. It was invented in 1950 by Albert C. Carter and Abe Bookman and is currently manufactured by Mattel.</p>
     <img src="images/fortuneteller.png" width = 300/>  
 <br/>
-    <input id = "question" type = “text” size=80/>
+    <input id = "question" type = “text” size=80 onfocusin = "reset()" />
 <br/>
     <input type="button" value="Click here" onClick="random()"/>
 <br/>
-    <input id = "answer" type = “text” size=80/>
+    <input id = "answer" type = “text” size=80 readonly = true />
+<br/>
+    <audio id="myAudio" src = "sounds/clapping.mp3" > <audio>
 <br/>
    
     Click here to <a href="index.html">return to my home page</a><br/>  
+
 </center>
 </body>
 </html>
