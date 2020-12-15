@@ -1,0 +1,97 @@
+<html>
+<head>
+<script language="JavaScript">
+
+var partsOfSpeech = ["Enter a male name.", "Enter spooky creatures real/fake", "Enter a type of car", "Enter a spooky creature real/fake", "Enter a snack", "Enter spooky creatures real/fake","Enter an adjective","Enter a spooky creature real/fake","Enter a verb (past tense)","Enter a title for this short story"];
+   
+var answers = ["word1","word2","word3","word4","word5","word6","word7","word8","word9","word10"];
+   
+var story = [" One day, a guy named ", " went to a scary corn maze. He wasn’t one who got scared easily. His only fear was ",".  So he drove to the place, in his musty old ",". When he arrived, he was greeted by a spooky ",". He got his ticket and went inside the maze, feeling courageous, and munching on ",". He took a few rights and lefts, and also got jump-scared by a few ",". This is definitely not "," he thought to himself. That is when he saw the exit, but a big scary "," was blocking it.  “Ahhhhhh!,” he screamed as he ",".  Hence, the title of this short story is called, ",". "];
+
+   
+var count = 0;
+function prompt2()
+{
+// if this is the start, display the textbox and hide the story.
+// then display the first element of partsOfSpeech in the textbox.
+    document.getElementById("userEnter").style.visibility = "visible";
+    document.getElementById("story").style.visibility = "hidden";
+    document.getElementById("response").value = partsOfSpeech[count];
+   
+}
+
+
+
+function getWords()
+{
+   
+    var wordBox = document.getElementById("response")
+    answers[count] = wordBox.value;
+   
+   
+    count ++;   //increment count
+   
+    if( count < partsOfSpeech.length )
+    {
+        prompt2();
+    }
+    else           //all elements have been addded
+    {
+        count = 0;
+        document.getElementById("story").innerHTML = displayStory();
+    }
+}
+   
+
+function displayStory()
+{
+    var answer = "";
+    var i;
+
+                         // loop to stitch elements of story with elements of answers.
+                        //answer = answer + story[0];
+                   // answer = answer + partsOfSpeech[0];
+   
+                             //alert (answer)
+   
+   for ( i = 0; i< answers.length; i++)
+    {
+       answer = answer + story [i];
+       answer = answer + answers [i];
+    }
+   
+    if ( i < story.length)
+        answer = answer + story[i];
+  //  else if (answers[i] == "")
+// if there's one more element in story than answers, then add the last element of answers
+
+// Make the story div visible, and the userEnter div hidden.
+  alert(answer)
+   
+    document.getElementById("userEnter").style.visibility ="hidden";
+    document.getElementById("story").style.visibility ="visible";
+   
+
+// return the variable answer.
+    return answer;
+ 
+}
+
+</script>
+</head>
+<body background="images/texture.jpg">
+<body>
+<center>
+<h1>My MadLib!</h1>
+<input id="daButton" type="button" value="start" onClick="prompt2()"/>
+</center>
+<div id="userEnter" style="position:absolute; left:200; top: 100; visibility:hidden;">
+<input type = "text" id="response" value="" onfocusout="getWords()"/></p>
+</div>
+
+<div id="story" style="position:absolute; overflow:scroll; top:300; left:200; width:400; height: 200; visibility:hidden">
+One day, a guy named NAME went to a scary corn maze. He wasn’t one who got scared easily. His only fear was NOUNs. So he drove to the place, in his musty old CAR. When he arrived, he was greeted by a spooky NOUN. He got his ticket and went inside the maze, feeling courageous, and munching on SNACK. He took a few rights and lefts, and also got jump-scared by a few NOUNs. This is definitely not ADJECTIVE he thought to himself. That is when he saw the exit, but a big scary NOUN was blocking it. “Ahhhhhh!,” he screamed as he VERB. Hence, the title of this short story is called, TITLE!  
+
+<br/>Click here to <a href="index.html">return to my home page</a><br/>
+</body>
+</html>
