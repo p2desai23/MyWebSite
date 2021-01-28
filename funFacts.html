@@ -1,0 +1,93 @@
+<html>
+<head>
+<script language="JavaScript">
+
+/*************** Algorithm ******************
+1. make a list of varibles that will be displayed
+2. make a funtionn thst will call those varivles from the list
+3. put those called varibles in a text box that will be displayed to the user
+4. maek aan array of repsones to the main items (asnwers'
+5. make a fuynction that will display the answers
+6. make an if statment that will display a certai naswer when each main item is choosen
+7. display the correct answer when the correct main item is chosen and displayed
+8. when user hits button they should see the final prduct all in the textbox
+ 
+
+*/
+
+
+var group = ["-- Choose an animal --", "Immortal Jellyfish","Inland Taipan","Blue Whale","Viceroy Butterfly","Mantis Shrimp","Koala"];
+
+var facts = ["-- No animal selected --", "A certain species of jellyfish has been deemed “immortal” by scientists who have observed its ability to, when in crisis, revert its cells to their earliest form and grow anew. That means that these tiny creatures, 4-to 5- millimeters long, potentially have infinite lives.","The maximum yield recorded from a single bite of Inland Taipan is 110 mg and the venom is so toxic that just one bite is enough to kill at least 100 human adults or 250 thousand mice.","Blue whales can weigh anywhere from 110 tons to 330 tons. It's tounge weighs as much as an elephants, while it's heart weights as much as an automobile.","This butterfly mimic's the famous monarch butterfly appearance wise. This is so it can avoid being eaten because monarch butterflies are venomous if eaten, so the appearance of this butterfly fends off any suspecting predators.","Traveling at about 50 mph, when a shrimp punches, its little fist of fury (which, of course, isn't a fist at all) is accelerating faster than a .22-caliber bullet, according to Science. National Geographic shared the tale of one such small smasher, explaining that in April 1998, an aggressive creature named Tyson smashed through the quarter-inch-thick glass wall of his cell."," Koalas on average sleep for 22 hours a day."];
+
+function loadData() // fills in the drop fown for the slect object
+{
+for(var i = 0; i <group.length; i++)
+    {
+        var daList = document.getElementById("prez");
+  var option = document.createElement("option");
+  option.text = group[i];
+  daList.add(option);
+    }
+}
+
+// This function identifies which element from the drop down has been selected. It calls the
+// getIndex function to acquire what the index of the selected item. Then it displays the
+// corresponding element in the facts list. (This is diplayed in the textbox on the web page.)
+function start()
+{
+    var names = document.getElementById("prez");
+   
+    var daIndex = getIndex(names.value);
+   
+ // alert(daIndex);
+// We'll code this second
+  //  alert(getIndex("Isle of Dogs"));
+    document.getElementById("funFact").value = facts[daIndex];
+   
+   
+   
+}
+
+// This function searches the group array for the element passed as a parameter
+// and returns the index number for that element in the array.
+function getIndex(d)
+{
+        var answer = -1; // invlaid
+   
+   
+        for( var i = 0; i < group.length; i++ )//traversd loop array
+        {  
+       
+          if (group[i] == d )
+          {
+              answer = i;
+          }                               //var answer = d + "t
+        }
+    return answer;  //-1,"hello"
+}
+
+ 
+
+</script>  
+</head>
+<body onload="loadData()">
+<body background="images/texture.jpg">
+<center>
+<h1>Animal Fun Facts</h1>
+Click <a href=index.html> here to return to my home page. <a/>
+
+<br/><br/>
+<table border = 5>
+<tr>
+<td>   <select name="p1" id="prez"></select> </td>
+<td> <input id="funFact" type="text" size="120"/> </td>  
+</tr>
+</table>
+<br/><br/>
+<input type="button" value="click" onclick="start()"/>
+</center>
+
+
+</body>
+</html>
