@@ -1,0 +1,95 @@
+<html> 
+<head> 
+<script language="JavaScript">
+
+/*************** Algorithm ******************
+1.
+2.
+3.
+4.
+5. 
+6.
+7.
+8 
+
+*/
+
+
+var questions; // Create an array of 10ish questions.
+
+var questions = ["What color is the sky?", "What is 8+3?", "How many seasons of Stranger Things are there currently?", "What is the most venomous animal?", "Which one is a word, gonef or foneg?", "What do you own, but never use, and people you know use it?", "Which five letter word can be spelt the same forward and backward?", "What is 3 divided by 9?", "Who is the CEO of Google?", "What is the most common boy's name?"];
+
+var answers = ["blue", "11", "3", "Inland Taipan", "gonef", "your name", "civic", "1/3", "Sundar Pichai", "James"];
+var index = -1;
+
+var score = 0;
+
+
+// Create code in displayQuestion that will display the contents of the questions array, one
+// element at a time. After the last element is displayed, the program should display the first
+// element again.
+function displayQuestion()
+{  
+    index++;
+   
+    if (index >= questions.length){
+        index = -1;
+    }
+    else{
+    document.getElementById("question").value = questions[index];
+    }
+}
+
+
+// This function will first acquire the user's answer (from the textbox with the ID "answer". Then this function will pass that to the checkAnswer function (note: that there is a parameter.) The checkAnswer will return a true or a false. If that function returns true, then the score variable will increase by 1, and an alert should pop up saying "Correct" or something positive. If the checkAnswer function comes back false, then score doesn't increase but an alert should announce "incorect." or something similar.
+function updateScore()
+{
+ans = document.getElementById("answer");
+   
+    checkAnswer(ans);
+}
+
+// This function takes a parameter which will be the users answer. If what the user has submitted the correct answer, this method should return true. Otherwise it should return false.
+function checkAnswer(ans)
+{
+    if (ans.value == answers[index]){
+         alert("Correct");
+         ans.value = "";
+         score++;
+    }
+    else{
+         alert("Incorrect");  
+    }    ans.value = "";      
+
+
+    if (index == 9){
+    alert(score);
+    }
+}
+</script>
+</head>
+<body background="images/texture.jpg">
+<body >
+<center>
+<h1>My Quiz</h1>
+Click here to return to my home page.
+
+<br/><br/>
+<table border = 3>
+<tr>
+<td>   <input id="question" type="text" size="70" readonly = true/> </td>
+</tr>
+<tr height = "12"><td></td>
+</tr>
+<tr>
+<td> <input id="answer" type="text" size="70" onfocusout="updateScore()"/> </td>
+</tr>
+</table>
+<br/><br/>
+<input type="button" value="Next Question" onclick="displayQuestion()"/>
+</center>
+
+
+</body>
+</html>
+
